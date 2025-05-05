@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+
 const sections = [
   {
     title: "Professional Journey",
@@ -20,6 +22,11 @@ const sections = [
       "I maintain an active lifestyle and particularly enjoy hiking and exploring the natural beauty of California since moving to the Bay Area. Outside of technology, I've recently started pursuing my interest in travel, seeking new experiences and perspectives around the world.",
   },
 ];
+
+export const metadata: Metadata = {
+  title: "About",
+  description: "The about page",
+};
 
 export default function AboutPage() {
   return (

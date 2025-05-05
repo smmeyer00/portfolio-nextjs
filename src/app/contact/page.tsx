@@ -1,4 +1,5 @@
 import { Mail, Linkedin, Github } from "lucide-react";
+import { Metadata } from "next";
 
 const contactMethods = [
   {
@@ -20,6 +21,11 @@ const contactMethods = [
     icon: Github,
   },
 ];
+
+export const metadata: Metadata = {
+  title: "Contact",
+  description: "The contact page",
+};
 
 export default function ContactPage() {
   return (
