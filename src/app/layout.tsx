@@ -3,6 +3,7 @@ import "./globals.css";
 import { robotoSans } from "@/lib/fonts";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/Footer";
+import { Analytics } from "@vercel/analytics/next"
 
 export const metadata: Metadata = {
   title: "smmeyer.dev",
@@ -42,6 +43,7 @@ export default function RootLayout({
           ]}
         />
         {children}
+        <Analytics />
         <Footer />
       </body>
     </html>
