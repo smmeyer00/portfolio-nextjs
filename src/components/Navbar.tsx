@@ -25,6 +25,12 @@ const Navbar: React.FC<NavbarProps> = ({ navItems }) => {
 
   return (
     <nav className='fixed w-full bg-background-900/95 backdrop-blur-sm z-50'>
+      <a
+        href='#main-content'
+        className='sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[60] focus:bg-accent-500 focus:text-foreground focus:px-4 focus:py-2 focus:rounded-lg'
+      >
+        Skip to main content
+      </a>
       <div className='max-w-6xl mx-auto px-4'>
         <div className='flex justify-between items-center h-16'>
           <Link href='/' className='text-foreground font-bold text-xl'>
@@ -45,6 +51,8 @@ const Navbar: React.FC<NavbarProps> = ({ navItems }) => {
 
           <button
             onClick={() => setIsOpen(true)}
+            aria-expanded={isOpen}
+            aria-label='Open navigation menu'
             className='md:hidden text-background-300 hover:text-accent-500'>
             <svg
               xmlns='http://www.w3.org/2000/svg'
@@ -68,6 +76,7 @@ const Navbar: React.FC<NavbarProps> = ({ navItems }) => {
           <div className='px-4 py-4 relative'>
             <button
               onClick={() => setIsOpen(false)}
+              aria-label='Close navigation menu'
               className='absolute top-4 right-4 text-background-300 hover:text-accent-500'>
               <svg
                 xmlns='http://www.w3.org/2000/svg'

@@ -45,7 +45,7 @@ export default function RootLayout({
             { label: "Contact", href: "/contact" },
           ]}
         />
-        {children}
+        <main id="main-content">{children}</main>
         <Analytics />
         <Footer />
       </body>
