@@ -181,7 +181,7 @@ function Scene({ onBookHover }: BookshelfProps) {
 
 export default function Bookshelf({ onBookHover }: BookshelfProps) {
   return (
-    <div className="w-full h-full min-h-[500px]">
+    <div className="absolute inset-0">
       <Canvas shadows>
         <Suspense fallback={null}>
           <Scene onBookHover={onBookHover} />

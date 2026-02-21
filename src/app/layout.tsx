@@ -42,7 +42,7 @@ export default function RootLayout({
             { label: "Home", href: "/" },
             { label: "About", href: "/about" },
             { label: "Projects", href: "/projects" },
-            { label: "Reading List", href: "/reading-list" },
+            { label: "BookRecs", href: "/book-recs" },
             { label: "Contact", href: "/contact" },
           ]}
         />
