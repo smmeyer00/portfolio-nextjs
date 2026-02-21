@@ -25,7 +25,7 @@ const sections = [
 
 export const metadata: Metadata = {
   title: "About",
-  description: "The about page",
+  description: "Learn about Steven Meyer's journey as a Software Engineer at Amazon Music, technical interests, and background.",
 };
 
 export default function AboutPage() {

@@ -1,30 +1,9 @@
-import { Mail, Linkedin, Github } from "lucide-react";
+import { socialLinks } from "@/data/social";
 import { Metadata } from "next";
-
-const contactMethods = [
-  {
-    name: "Email",
-    value: "smmeyer00@gmail.com",
-    href: "mailto:smmeyer00@gmail.com",
-    icon: Mail,
-  },
-  {
-    name: "LinkedIn",
-    value: "in/smmeyer00",
-    href: "https://linkedin.com/in/smmeyer00",
-    icon: Linkedin,
-  },
-  {
-    name: "GitHub",
-    value: "smmeyer00",
-    href: "https://github.com/smmeyer00",
-    icon: Github,
-  },
-];
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "The contact page",
+  description: "Get in touch with Steven Meyer via email, LinkedIn, or GitHub.",
 };
 
 export default function ContactPage() {
@@ -42,7 +21,7 @@ export default function ContactPage() {
 
           {/* Contact Methods */}
           <div className="grid gap-4 mb-12">
-            {contactMethods.map((method) => (
+            {socialLinks.map((method) => (
               <a
                 key={method.name}
                 href={method.href}
@@ -80,6 +59,7 @@ export default function ContactPage() {
             method="POST"
             className="space-y-6"
           >
+            {/* TODO: Move API key to environment variable (NEXT_PUBLIC_WEB3FORMS_KEY) */}
             <input
               type="hidden"
               name="access_key"

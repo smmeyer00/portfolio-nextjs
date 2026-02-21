@@ -4,7 +4,7 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Home",
-  description: "The home page",
+  description: "Steven Meyer - Software Engineer crafting digital experiences through clean and efficient code.",
 };
 
 export default function Home() {

@@ -1,22 +1,4 @@
-import { Github, Linkedin, Mail } from "lucide-react";
-
-const socialLinks = [
-  {
-    name: "GitHub",
-    url: "https://github.com/smmeyer00",
-    icon: Github,
-  },
-  {
-    name: "LinkedIn",
-    url: "https://linkedin.com/in/smmeyer00",
-    icon: Linkedin,
-  },
-  {
-    name: "Email",
-    url: "mailto:smmeyer00@gmail.com",
-    icon: Mail,
-  },
-];
+import { socialLinks } from "@/data/social";
 
 export default function Footer() {
   return (
@@ -27,7 +9,7 @@ export default function Footer() {
             {socialLinks.map((social) => (
               <a
                 key={social.name}
-                href={social.url}
+                href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-accent-500 transition-colors duration-300"

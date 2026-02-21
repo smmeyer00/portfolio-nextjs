@@ -1,13 +1,16 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { robotoSans } from "@/lib/fonts";
-import Navbar from "@/components/navbar";
+import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Analytics } from "@vercel/analytics/next"
 
 export const metadata: Metadata = {
-  title: "smmeyer.dev",
-  description: "Steven's Portfolio Website",
+  title: {
+    default: "Steven Meyer | Software Engineer",
+    template: "%s | Steven Meyer",
+  },
+  description: "Steven Meyer's portfolio website - Software Engineer at Amazon Music building scalable solutions across the full stack.",
 };
 
 export default function RootLayout({
