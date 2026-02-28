@@ -7,6 +7,8 @@ interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
+const baseUrl = "https://smmeyer.dev";
+
 export async function generateStaticParams() {
   const slugs = getAllSlugs();
   return slugs.map((slug) => ({ slug }));
@@ -23,6 +25,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: post.title,
     description: post.description,
+    openGraph: {
+      title: `${post.title} | Steven Meyer`,
+      description: post.description,
+      url: `${baseUrl}/blog/${slug}`,
+      type: "article",
+      publishedTime: post.date,
+      authors: ["Steven Meyer"],
+    },
   };
 }
 

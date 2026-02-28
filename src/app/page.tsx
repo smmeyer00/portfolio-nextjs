@@ -2,9 +2,22 @@ import Image from "next/image";
 import Button from "@/components/Button";
 import { Metadata } from "next";
 
+const baseUrl = "https://smmeyer.dev";
+
 export const metadata: Metadata = {
   title: "Home",
-  description: "Steven Meyer - Software Engineer crafting digital experiences through clean and efficient code.",
+  description: "I build.",
+  openGraph: {
+    title: "Steven Meyer | Software Engineer",
+    description: "I build.",
+    url: baseUrl,
+    images: [
+      {
+        url: `${baseUrl}/kings_canyon_film.jpg`,
+        alt: "Steven Meyer - Software Engineer",
+      },
+    ],
+  },
 };
 
 export default function Home() {

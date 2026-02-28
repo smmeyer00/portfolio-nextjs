@@ -2,9 +2,16 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { getAllPosts } from "@/lib/blog";
 
+const baseUrl = "https://smmeyer.dev";
+
 export const metadata: Metadata = {
   title: "Blog",
   description: "Thoughts, tutorials, and insights on software engineering and technology.",
+  openGraph: {
+    title: "Blog | Steven Meyer",
+    description: "Thoughts, tutorials, and insights on software engineering and technology.",
+    url: `${baseUrl}/blog`,
+  },
 };
 
 export default function BlogPage() {

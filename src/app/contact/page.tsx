@@ -1,9 +1,16 @@
 import { socialLinks } from "@/data/social";
 import { Metadata } from "next";
 
+const baseUrl = "https://smmeyer.dev";
+
 export const metadata: Metadata = {
   title: "Contact",
   description: "Get in touch with Steven Meyer via email, LinkedIn, or GitHub.",
+  openGraph: {
+    title: "Contact | Steven Meyer",
+    description: "Get in touch with Steven Meyer via email, LinkedIn, or GitHub.",
+    url: `${baseUrl}/contact`,
+  },
 };
 
 export default function ContactPage() {

@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 
+const baseUrl = "https://smmeyer.dev";
+
 const sections = [
   {
     title: "Professional Journey",
@@ -26,6 +28,11 @@ const sections = [
 export const metadata: Metadata = {
   title: "About",
   description: "Learn about Steven Meyer's journey as a Software Engineer at Amazon Music, technical interests, and background.",
+  openGraph: {
+    title: "About | Steven Meyer",
+    description: "Learn about Steven Meyer's journey as a Software Engineer at Amazon Music, technical interests, and background.",
+    url: `${baseUrl}/about`,
+  },
 };
 
 export default function AboutPage() {

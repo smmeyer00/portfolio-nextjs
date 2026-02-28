@@ -2,9 +2,16 @@ import ProjectCard from "@/components/ProjectCard";
 import { projects } from "@/data/projects";
 import { Metadata } from "next";
 
+const baseUrl = "https://smmeyer.dev";
+
 export const metadata: Metadata = {
   title: "Projects",
   description: "Explore Steven Meyer's portfolio of software engineering projects and side projects.",
+  openGraph: {
+    title: "Projects | Steven Meyer",
+    description: "Explore Steven Meyer's portfolio of software engineering projects and side projects.",
+    url: `${baseUrl}/projects`,
+  },
 };
 
 export default function ProjectsPage() {
