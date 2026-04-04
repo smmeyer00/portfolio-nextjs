@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/AnimatedSection";
 
 const baseUrl = "https://smmeyer.dev";
 
@@ -37,30 +38,37 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <section className="min-h-screen pt-24 px-4 overflow-hidden">
-      <div className="relative max-w-6xl mx-auto">
-        <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-12 text-center">
-          About Me
-        </h1>
+    <section className="min-h-screen pt-24 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <div className="relative max-w-4xl mx-auto">
+        <AnimatedSection className="mb-16">
+          <span className="inline-block text-accent-500 font-medium text-sm uppercase tracking-wider mb-4">
+            Get to know me
+          </span>
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-tight">
+            About Me
+          </h1>
+        </AnimatedSection>
 
-        <div className="space-y-16">
+        <StaggerContainer className="space-y-12" staggerDelay={0.15}>
           {sections.map((section) => (
-            <section key={section.title} className="relative">
-              {/* Decorative line */}
-              <div className="absolute left-0 top-0 h-full w-px bg-gradient-to-b from-accent-500/0 via-accent-500/50 to-accent-500/0"></div>
+            <StaggerItem key={section.title}>
+              <section className="relative group">
+                {/* Decorative line */}
+                <div className="absolute left-0 top-0 h-full w-px bg-gradient-to-b from-accent-500/0 via-accent-500/50 to-accent-500/0 group-hover:via-accent-500 transition-all duration-500" />
 
-              <div className="pl-8">
-                <h2 className="text-2xl font-bold text-accent-500 mb-4 flex items-center">
-                  <span className="absolute -left-[5px] w-2.5 h-2.5 bg-accent-500 rounded-full"></span>
-                  {section.title}
-                </h2>
-                <p className="text-background-300 leading-relaxed">
-                  {section.content}
-                </p>
-              </div>
-            </section>
+                <div className="pl-8">
+                  <h2 className="text-2xl md:text-3xl font-semibold text-accent-500 mb-4 flex items-center">
+                    <span className="absolute -left-[5px] w-2.5 h-2.5 bg-accent-500 rounded-full group-hover:scale-125 transition-transform duration-300" />
+                    {section.title}
+                  </h2>
+                  <p className="text-lg text-background-300 leading-relaxed">
+                    {section.content}
+                  </p>
+                </div>
+              </section>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerContainer>
       </div>
     </section>
   );

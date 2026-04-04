@@ -63,9 +63,9 @@ input:-webkit-autofill:focus {
   --color-pine-green-800: #31461f;
   --color-pine-green-900: #293a1a;
   --color-pine-green-950: #0e1509;
-  --color-pine-green: var(--color-pine-green-500);  
+  --color-pine-green: var(--color-pine-green-500);
 
-  
+
   --color-accent: var(--color-pine-green-500);
   --color-accent-50: var(--color-pine-green-50);
   --color-accent-100: var(--color-pine-green-100);
@@ -93,5 +93,12 @@ input:-webkit-autofill:focus {
   --color-background-950: var(--color-neutral-950);
 
   --color-foreground: var(--color-white);
-  
+
+  /* Typography Scale */
+  --text-display: 4.5rem;
+  --text-title: 3rem;
+  --text-heading: 1.5rem;
+  --text-body: 1.125rem;
+  --text-small: 0.875rem;
+
 }
