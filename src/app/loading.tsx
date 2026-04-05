@@ -1,9 +1,13 @@
 export default function Loading() {
   return (
-    <section className="min-h-screen pt-24 px-4 flex items-center justify-center">
-      <div className="flex flex-col items-center gap-4">
-        <div className="w-12 h-12 border-4 border-accent-500 border-t-transparent rounded-full animate-spin" />
-        <p className="text-background-300 animate-pulse">Loading...</p>
+    <section className="page-shell">
+      <div className="content-shell">
+        <div className="section-frame mx-auto flex max-w-xl flex-col items-center rounded-[2rem] px-6 py-16 text-center">
+          <div className="h-12 w-12 rounded-full border-4 border-accent-300 border-t-transparent animate-spin" />
+          <p className="mt-5 text-base text-background-300">
+            Loading the next surface…
+          </p>
+        </div>
       </div>
     </section>
   );

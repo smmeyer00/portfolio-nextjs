@@ -1,52 +1,59 @@
-# Steven Meyer - Portfolio
+# Steven Meyer Portfolio
 
-My personal portfolio website built with Next.js, featuring a blog, project showcase, and interactive 3D book recommendations.
+A Next.js portfolio built as a small product surface rather than a single landing page. The site combines case studies, long-form writing, a reading page with a progressive 3D enhancement, and a server-side contact workflow.
 
-## Tech Stack
+## Stack
 
-- **Framework**: Next.js 16 (App Router)
-- **Styling**: Tailwind CSS v4
-- **Typography**: @tailwindcss/typography
-- **3D Graphics**: React Three Fiber + Three.js
-- **Icons**: Lucide React
-- **Blog**: Markdown with gray-matter, remark, and Shiki for syntax highlighting
-- **Analytics**: Vercel Analytics
+- Next.js 16 App Router
+- React 19
+- Tailwind CSS v4
+- Framer Motion
+- React Three Fiber / Three.js
+- Markdown content via gray-matter, remark, and Shiki
+- Vercel Analytics
 
-## Features
+## Key Features
 
-- **Blog**: Markdown-based posts with syntax highlighting
-- **Projects**: Project showcase with individual detail pages
-- **Book Recommendations**: Interactive 3D bookshelf (desktop) and responsive grid (mobile)
-- **Contact Form**: Web3Forms integration
-- **SEO**: Open Graph, Twitter cards, sitemap, robots.txt, and JSON-LD structured data
+- Editorial homepage and shared design system
+- Structured project case studies with static generation
+- Local-first blog with reading time, table of contents, RSS, sitemap, and syntax highlighting
+- Reading page that keeps the content server-rendered while enhancing desktop with a 3D bookshelf
+- Server-side contact submission via Web3Forms
 
-## Getting Started
+## Local Development
 
 ```bash
-# Install dependencies
 npm install
-
-# Run development server
 npm run dev
+```
 
-# Build for production
+Open `http://localhost:3000`.
+
+## Quality Checks
+
+```bash
+npm run lint
+npm run typecheck
 npm run build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to view the site.
+## Contact Form Setup
+
+Copy `.env.example` to `.env.local` and set:
+
+```bash
+WEB3FORMS_ACCESS_KEY=your-key-here
+```
+
+Without that key, the contact page still renders but submissions will return a configuration message.
 
 ## Project Structure
 
-```
+```text
 src/
-├── app/              # Next.js App Router pages
-├── components/       # React components
-├── data/            # Static data (projects, books, social links)
-└── lib/             # Utilities (blog processing, fonts)
-content/
-└── blog/            # Markdown blog posts
+  app/          App Router routes, metadata routes, feed, and server actions
+  components/   Shared UI, motion wrappers, contact form, and reading showcase
+  data/         Site config plus project and reading data
+  lib/          Blog/content utilities and fonts
+content/blog/   Markdown blog posts
 ```
-
-## Deployment
-
-Deployed on Vercel. Push to main branch to deploy automatically.

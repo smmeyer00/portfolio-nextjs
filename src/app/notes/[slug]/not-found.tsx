@@ -1,34 +1,21 @@
-"use client";
-
-import { useEffect } from "react";
 import Button from "@/components/Button";
 
-export default function Error({
-  error,
-  reset,
-}: {
-  error: Error & { digest?: string };
-  reset: () => void;
-}) {
-  useEffect(() => {
-    console.error(error);
-  }, [error]);
-
+export default function NoteNotFound() {
   return (
     <section className="page-shell">
       <div className="content-shell">
         <div className="section-frame mx-auto max-w-2xl rounded-[2rem] px-6 py-14 text-center sm:px-8">
-          <p className="eyebrow justify-center">Something broke</p>
+          <p className="eyebrow justify-center">Note missing</p>
           <h1 className="mt-6 font-display text-5xl font-semibold tracking-[-0.05em] text-foreground sm:text-6xl">
-            The page hit an unexpected edge case.
+            That note is not available.
           </h1>
           <p className="mx-auto mt-5 max-w-xl text-base leading-7 text-background-300">
-            Try the request again. If the problem sticks around, the quickest
-            fallback is navigating back home and reloading from there.
+            It may have been moved or removed while the archive was being
+            reorganized.
           </p>
           <div className="mt-8 flex justify-center">
-            <Button onClick={reset} size="lg">
-              Try again
+            <Button href="/notes" size="lg">
+              Back to notes
             </Button>
           </div>
         </div>

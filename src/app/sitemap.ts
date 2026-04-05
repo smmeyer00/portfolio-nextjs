@@ -1,12 +1,10 @@
 import { MetadataRoute } from "next";
-import { getAllSlugs } from "@/lib/blog";
+import { getAllNoteSlugs } from "@/lib/notes";
+import { siteConfig } from "@/data/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://smmeyer.dev";
-  
-  const blogSlugs = getAllSlugs();
-  const blogUrls = blogSlugs.map((slug) => ({
-    url: `${baseUrl}/blog/${slug}`,
+  const noteUrls = getAllNoteSlugs().map((slug) => ({
+    url: `${siteConfig.baseUrl}/notes/${slug}`,
     lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.7,
@@ -14,41 +12,35 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     {
-      url: baseUrl,
+      url: siteConfig.baseUrl,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 1,
     },
     {
-      url: `${baseUrl}/about`,
+      url: `${siteConfig.baseUrl}/about`,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/projects`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/blog`,
+      url: `${siteConfig.baseUrl}/notes`,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/book-recs`,
+      url: `${siteConfig.baseUrl}/reading`,
       lastModified: new Date(),
       changeFrequency: "monthly",
-      priority: 0.6,
+      priority: 0.65,
     },
     {
-      url: `${baseUrl}/contact`,
+      url: `${siteConfig.baseUrl}/contact`,
       lastModified: new Date(),
       changeFrequency: "yearly",
-      priority: 0.5,
+      priority: 0.55,
     },
-    ...blogUrls,
+    ...noteUrls,
   ];
 }

@@ -1,71 +1,92 @@
 import type { Metadata } from "next";
+import SectionIntro from "@/components/SectionIntro";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/AnimatedSection";
-
-const baseUrl = "https://smmeyer.dev";
-
-const sections = [
-  {
-    title: "Professional Journey",
-    content:
-      "From writing my first lines of code in high school to now building marketing technology at Amazon Music in San Francisco, I've cultivated a passion for crafting robust, scalable software solutions. I graduated cum laude with a B.S. in Computer Science and minor in Mathematics from Southern Illinois University Edwardsville in 2023, following a successful internship as a Software Development Engineer at Amazon.",
-  },
-  {
-    title: "What I Do",
-    content:
-      "At Amazon Music, I work on marketing technology systems that power in-app messaging experiences. My role involves both frontend and backend development, from building intuitive interfaces for marketing teams to architecting the microservices that power them.",
-  },
-  {
-    title: "Technical Interests",
-    content:
-      "Beyond my day-to-day work, I stay actively engaged with the latest developments in software engineering. I'm particularly interested in modern JavaScript frameworks, emerging startups, and the evolving landscape of AI/ML. I enjoy building side projects that let me explore new technologies and challenge my skills.",
-  },
-  {
-    title: "Beyond the Code",
-    content:
-      "I maintain an active lifestyle and particularly enjoy hiking and exploring the natural beauty of California since moving to the Bay Area. Outside of technology, I've recently started pursuing my interest in travel, seeking new experiences and perspectives around the world.",
-  },
-];
+import { aboutFacts, aboutTimeline, openGraphBase, siteConfig } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "About",
-  description: "Learn about Steven Meyer's journey as a Software Engineer at Amazon Music, technical interests, and background.",
+  description:
+    "Learn more about Steven Meyer, a software engineer at Amazon Music working across frontend and backend.",
   openGraph: {
-    title: "About | Steven Meyer",
-    description: "Learn about Steven Meyer's journey as a Software Engineer at Amazon Music, technical interests, and background.",
-    url: `${baseUrl}/about`,
+    ...openGraphBase,
+    title: `About | ${siteConfig.name}`,
+    description:
+      "Learn more about Steven Meyer, a software engineer at Amazon Music working across frontend and backend.",
+    type: "website",
+    url: `${siteConfig.baseUrl}/about`,
   },
 };
 
 export default function AboutPage() {
   return (
-    <section className="min-h-screen pt-24 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
-      <div className="relative max-w-4xl mx-auto">
-        <AnimatedSection className="mb-16">
-          <span className="inline-block text-accent-500 font-medium text-sm uppercase tracking-wider mb-4">
-            Get to know me
-          </span>
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-tight">
-            About Me
-          </h1>
+    <section className="page-shell">
+      <div className="content-shell">
+        <AnimatedSection>
+          <SectionIntro
+            eyebrow="About"
+            title="A product-minded software engineer working across frontend and backend."
+            description="I’m a software engineer at Amazon Music. I work across frontend and backend, and I care about building products that are useful, understandable, and worth maintaining."
+          />
         </AnimatedSection>
 
-        <StaggerContainer className="space-y-12" staggerDelay={0.15}>
-          {sections.map((section) => (
-            <StaggerItem key={section.title}>
-              <section className="relative group">
-                {/* Decorative line */}
-                <div className="absolute left-0 top-0 h-full w-px bg-gradient-to-b from-accent-500/0 via-accent-500/50 to-accent-500/0 group-hover:via-accent-500 transition-all duration-500" />
+        <div className="mt-12 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+          <AnimatedSection className="section-frame rounded-[2rem] p-6 sm:p-8">
+            <p className="text-sm uppercase tracking-[0.24em] text-accent-300">
+              Current context
+            </p>
+            <p className="mt-5 text-lg leading-8 text-background-300">
+              I currently build marketing technology at {siteConfig.employer},
+              working across user-facing interfaces and the systems behind them.
+            </p>
+          </AnimatedSection>
 
-                <div className="pl-8">
-                  <h2 className="text-2xl md:text-3xl font-semibold text-accent-500 mb-4 flex items-center">
-                    <span className="absolute -left-[5px] w-2.5 h-2.5 bg-accent-500 rounded-full group-hover:scale-125 transition-transform duration-300" />
-                    {section.title}
-                  </h2>
-                  <p className="text-lg text-background-300 leading-relaxed">
-                    {section.content}
+          <AnimatedSection delay={0.1} className="section-frame rounded-[2rem] p-6 sm:p-8">
+            <p className="text-sm uppercase tracking-[0.24em] text-accent-300">
+              At a glance
+            </p>
+            <div className="mt-5 grid gap-3">
+              {aboutFacts.map((fact) => (
+                <div
+                  key={fact.label}
+                  className="rounded-[1.25rem] border border-white/8 bg-white/4 px-4 py-4"
+                >
+                  <p className="text-xs uppercase tracking-[0.18em] text-background-400">
+                    {fact.label}
+                  </p>
+                  <p className="mt-2 text-sm leading-6 text-background-200">
+                    {fact.value}
                   </p>
                 </div>
-              </section>
+              ))}
+            </div>
+          </AnimatedSection>
+        </div>
+
+        <AnimatedSection className="mt-24">
+          <SectionIntro
+            eyebrow="Timeline"
+            title="A short timeline."
+          />
+        </AnimatedSection>
+
+        <StaggerContainer className="mt-10 space-y-5" staggerDelay={0.08}>
+          {aboutTimeline.map((item) => (
+            <StaggerItem key={item.title}>
+              <article className="section-frame rounded-[1.75rem] px-6 py-6 sm:px-8">
+                <div className="grid gap-4 lg:grid-cols-[9rem_1fr]">
+                  <p className="text-sm font-semibold uppercase tracking-[0.24em] text-accent-300">
+                    {item.period}
+                  </p>
+                  <div>
+                    <h3 className="text-2xl font-semibold text-foreground">
+                      {item.title}
+                    </h3>
+                    <p className="mt-3 text-base leading-7 text-background-300">
+                      {item.detail}
+                    </p>
+                  </div>
+                </div>
+              </article>
             </StaggerItem>
           ))}
         </StaggerContainer>

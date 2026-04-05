@@ -1,6 +1,11 @@
-import { Roboto } from "next/font/google";
+import { Manrope, Outfit } from "next/font/google";
 
-export const robotoSans = Roboto({
-  variable: "--font-roboto-sans",
+export const bodyFont = Manrope({
+  variable: "--font-body",
+  subsets: ["latin"],
+});
+
+export const displayFont = Outfit({
+  variable: "--font-display",
   subsets: ["latin"],
 });

@@ -1,78 +1,48 @@
-import Image from "next/image";
-import Button from "@/components/Button";
 import { Metadata } from "next";
-import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/AnimatedSection";
+import Button from "@/components/Button";
+import { AnimatedSection } from "@/components/AnimatedSection";
 import { HeroImage } from "@/components/HeroImage";
-
-const baseUrl = "https://smmeyer.dev";
+import { openGraphBase, siteConfig } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Home",
-  description: "I build.",
+  description: siteConfig.shortDescription,
   openGraph: {
-    title: "Steven Meyer | Software Engineer",
-    description: "I build.",
-    url: baseUrl,
-    images: [
-      {
-        url: `${baseUrl}/kings_canyon_film.jpg`,
-        alt: "Steven Meyer - Software Engineer",
-      },
-    ],
+    ...openGraphBase,
+    title: `${siteConfig.name} | Software Engineer`,
+    description: siteConfig.shortDescription,
+    type: "website",
+    url: siteConfig.baseUrl,
   },
 };
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <section className="min-h-screen bg-background-900 flex items-center pt-24 pb-16 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto w-full">
-        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
-          {/* Content - Left Side */}
-          <div className="flex-1 lg:pr-8">
-            <StaggerContainer className="space-y-6">
-              <StaggerItem>
-                <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold text-foreground leading-[1.1]">
-                  Hi, I&apos;m{" "}
-                  <span className="bg-gradient-to-r from-accent-400 to-accent-600 bg-clip-text text-transparent">
-                    Steven
-                  </span>
-                </h1>
-              </StaggerItem>
+    <section className="page-shell">
+      <div className="content-shell">
+        <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+          <AnimatedSection className="max-w-3xl">
+            <span className="eyebrow">Product-minded software engineer</span>
+            <h1 className="display-title mt-6 text-[3.6rem] text-foreground sm:text-[4.8rem] lg:text-[6.2rem]">
+              I build software that stays understandable as it grows.
+            </h1>
+            <p className="mt-6 max-w-2xl text-lg leading-8 muted-copy sm:text-xl">
+              {siteConfig.longDescription}
+            </p>
 
-              <StaggerItem>
-                <p className="text-xl sm:text-2xl text-background-400 max-w-lg leading-relaxed">
-                  I write code for a living. The challenge is doing it in a way that holds up over time.
-                </p>
-              </StaggerItem>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Button href="/about" size="lg">
+                About me
+              </Button>
+              <Button href="/contact" variant="secondary" size="lg">
+                Start a conversation
+              </Button>
+            </div>
+          </AnimatedSection>
 
-              <StaggerItem>
-                <div className="flex flex-wrap gap-4 pt-2">
-                  <Button href="/projects">View My Work</Button>
-                  <Button href="/contact">Get In Touch</Button>
-                </div>
-              </StaggerItem>
-
-              <StaggerItem>
-                <div className="flex items-center gap-6 pt-6 text-sm text-background-400 border-t border-background-800 mt-8">
-                  <div className="flex items-center gap-2">
-                    <span className="w-2 h-2 bg-accent-500 rounded-full animate-pulse" />
-                    <span>3+ Years Experience</span>
-                  </div>
-                  <span className="text-background-700">•</span>
-                  <span>Full Stack</span>
-                  <span className="text-background-700">•</span>
-                  <span>SF Bay Area</span>
-                </div>
-              </StaggerItem>
-            </StaggerContainer>
-          </div>
-
-          {/* Image - Right Side */}
-          <div className="flex-1 max-w-md lg:max-w-lg">
-            <AnimatedSection delay={0.2} direction="left">
-              <HeroImage />
-            </AnimatedSection>
-          </div>
+          <AnimatedSection direction="left" delay={0.12}>
+            <HeroImage />
+          </AnimatedSection>
         </div>
       </div>
     </section>

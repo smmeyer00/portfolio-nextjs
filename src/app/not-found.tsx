@@ -1,33 +1,35 @@
+import type { Metadata } from "next";
 import Button from "@/components/Button";
-import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "404 :(",
-  description: "Page not found",
+  title: "Page Not Found",
+  description: "The page you requested could not be found.",
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen pt-24 px-4 flex items-center justify-center">
-      <div className="max-w-2xl mx-auto text-center">
-        <div className="relative mb-8">
-          <h1 className="text-8xl md:text-9xl font-bold text-accent-500 mb-4 animate-pulse">
-            404
+    <section className="page-shell">
+      <div className="content-shell">
+        <div className="section-frame mx-auto max-w-2xl rounded-[2rem] px-6 py-14 text-center sm:px-8">
+          <p className="eyebrow justify-center">404</p>
+          <h1 className="mt-6 font-display text-5xl font-semibold tracking-[-0.05em] text-foreground sm:text-6xl">
+            This route does not exist anymore.
           </h1>
-          <div className="absolute inset-0 bg-accent-500/20 blur-3xl -z-10"></div>
+          <p className="mx-auto mt-5 max-w-xl text-base leading-7 text-background-300">
+            The page may have moved, been renamed, or never belonged here in the
+            first place.
+          </p>
+          <div className="mt-8 flex justify-center">
+            <Button href="/" size="lg">
+              Return home
+            </Button>
+          </div>
         </div>
-
-        <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-          Page Not Found
-        </h2>
-
-        <p className="text-background-300 mb-8 max-w-md mx-auto">
-          Looks like you&apos;ve ventured into uncharted territory. The page
-          you&apos;re looking for doesn&apos;t exist or has been moved.
-        </p>
-
-        <Button href="/">Return Home</Button>
       </div>
-    </div>
+    </section>
   );
 }

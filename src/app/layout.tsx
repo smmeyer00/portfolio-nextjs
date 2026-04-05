@@ -1,58 +1,55 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { robotoSans } from "@/lib/fonts";
+import { bodyFont, displayFont } from "@/lib/fonts";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Analytics } from "@vercel/analytics/next";
-import { AnimatedBackground } from "@/components/AnimatedBackground";
-
-const baseUrl = "https://smmeyer.dev";
+import { defaultOpenGraphImage, openGraphBase, siteConfig } from "@/data/site";
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
-  name: "Steven Meyer",
-  url: baseUrl,
+  name: siteConfig.name,
+  url: siteConfig.baseUrl,
   jobTitle: "Software Engineer",
-    worksFor: {
-      "@type": "Organization",
-      name: "Amazon",
-    },
-  sameAs: [
-    "https://github.com/smmeyer00",
-    "https://linkedin.com/in/smmeyer00",
-  ],
+  worksFor: {
+    "@type": "Organization",
+    name: siteConfig.employer,
+  },
+  sameAs: [siteConfig.social.github, siteConfig.social.linkedin],
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL(baseUrl),
+  metadataBase: new URL(siteConfig.baseUrl),
   title: {
-    default: "Steven Meyer | Software Engineer",
-    template: "%s | Steven Meyer",
+    default: `${siteConfig.name} | Software Engineer`,
+    template: `%s | ${siteConfig.name}`,
   },
-  description: "I build.",
+  description: siteConfig.shortDescription,
+  keywords: [...siteConfig.keywords],
   openGraph: {
+    ...openGraphBase,
+    title: `${siteConfig.name} | Software Engineer`,
+    description: siteConfig.shortDescription,
     type: "website",
-    locale: "en_US",
-    url: baseUrl,
-    siteName: "Steven Meyer",
-    title: "Steven Meyer | Software Engineer",
-    description: "I build.",
-    images: [
-      {
-        url: `${baseUrl}/kings_canyon_film.jpg`,
-        alt: "Steven Meyer - Software Engineer",
-      },
-    ],
+    url: siteConfig.baseUrl,
   },
   twitter: {
     card: "summary_large_image",
-    title: "Steven Meyer | Software Engineer",
-    description: "I build.",
-    images: [`${baseUrl}/kings_canyon_film.jpg`],
+    title: `${siteConfig.name} | Software Engineer`,
+    description: siteConfig.shortDescription,
+    images: [defaultOpenGraphImage.url],
   },
-  authors: [{ name: "Steven Meyer" }],
-  creator: "Steven Meyer",
+  alternates: {
+    types: {
+      "application/rss+xml": `${siteConfig.baseUrl}/feed.xml`,
+    },
+  },
+  authors: [{ name: siteConfig.name }],
+  creator: siteConfig.name,
+  icons: {
+    icon: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({
@@ -63,7 +60,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
         <script
           key="json-ld"
           type="application/ld+json"
@@ -71,20 +67,12 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${robotoSans.className} antialiased min-h-screen flex flex-col bg-background-900`}
+        className={`${bodyFont.variable} ${displayFont.variable} flex min-h-screen flex-col antialiased`}
       >
-        <AnimatedBackground />
-        <Navbar
-          navItems={[
-            { label: "Home", href: "/" },
-            { label: "About", href: "/about" },
-            { label: "Projects", href: "/projects" },
-            { label: "BookRecs", href: "/book-recs" },
-            { label: "Blog", href: "/blog" },
-            { label: "Contact", href: "/contact" },
-          ]}
-        />
-        <main id="main-content">{children}</main>
+        <Navbar navItems={siteConfig.navItems.map((item) => ({ ...item }))} />
+        <main id="main-content" className="flex-1">
+          {children}
+        </main>
         <Analytics />
         <Footer />
       </body>

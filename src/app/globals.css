@@ -1,57 +1,7 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
-/* Hide scrollbar for Chrome, Safari and Opera */
-::-webkit-scrollbar {
-  display: none;
-}
-
-/* Hide scrollbar for IE, Edge and Firefox */
-* {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
-}
-
-/* Autofill styles */
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus {
-  -webkit-text-fill-color: #fff;
-  -webkit-box-shadow: 0 0 0px 1000px rgb(30 41 59 / 0.5) inset;
-  transition: background-color 5000s ease-in-out 0s;
-}
-
-/* Code blocks - remove prose styling inside pre */
-.code-block {
-  line-height: 1.1 !important;
-  border-radius: 0.5rem !important;
-  border: 1px solid rgb(64 64 64) !important;
-  padding: 1rem !important;
-  margin: 1.5rem 0 !important;
-  overflow-x: auto !important;
-}
-
-.code-block code {
-  background: transparent !important;
-  padding: 0 !important;
-  border-radius: 0 !important;
-  color: inherit !important;
-  line-height: 1.1 !important;
-}
-
-.code-block .line {
-  line-height: 1.1 !important;
-  min-height: 0 !important;
-}
-
-/* Blockquotes - remove automatic quotes */
-.prose blockquote p::before,
-.prose blockquote p::after {
-  content: "" !important;
-}
-
 @theme inline {
-
   --color-pine-green-50: #f5f8f1;
   --color-pine-green-100: #e9eedd;
   --color-pine-green-200: #d2debc;
@@ -64,7 +14,6 @@ input:-webkit-autofill:focus {
   --color-pine-green-900: #293a1a;
   --color-pine-green-950: #0e1509;
   --color-pine-green: var(--color-pine-green-500);
-
 
   --color-accent: var(--color-pine-green-500);
   --color-accent-50: var(--color-pine-green-50);
@@ -79,26 +28,171 @@ input:-webkit-autofill:focus {
   --color-accent-900: var(--color-pine-green-900);
   --color-accent-950: var(--color-pine-green-950);
 
-  --color-background: var(--color-neutral-500);
-  --color-background-50: var(--color-neutral-50);
-  --color-background-100: var(--color-neutral-100);
-  --color-background-200: var(--color-neutral-200);
-  --color-background-300: var(--color-neutral-300);
-  --color-background-400: var(--color-neutral-400);
-  --color-background-500: var(--color-neutral-500);
-  --color-background-600: var(--color-neutral-600);
-  --color-background-700: var(--color-neutral-700);
-  --color-background-800: var(--color-neutral-800);
-  --color-background-900: var(--color-neutral-900);
-  --color-background-950: var(--color-neutral-950);
+  --color-background: var(--color-stone-500);
+  --color-background-50: #f8f7f2;
+  --color-background-100: #f0ede5;
+  --color-background-200: #d8d3c8;
+  --color-background-300: #b5b0a3;
+  --color-background-400: #8e887b;
+  --color-background-500: #686154;
+  --color-background-600: #4f493f;
+  --color-background-700: #373228;
+  --color-background-800: #1d1c18;
+  --color-background-900: #111310;
+  --color-background-950: #090a08;
 
-  --color-foreground: var(--color-white);
+  --color-foreground: #f6f4ef;
+  --color-foreground-soft: #d8d2c6;
+  --color-line: rgb(255 255 255 / 0.09);
+  --color-line-strong: rgb(255 255 255 / 0.16);
 
-  /* Typography Scale */
-  --text-display: 4.5rem;
-  --text-title: 3rem;
-  --text-heading: 1.5rem;
-  --text-body: 1.125rem;
-  --text-small: 0.875rem;
+  --shadow-panel: 0 24px 80px rgb(0 0 0 / 0.34);
+  --radius-panel: 1.75rem;
+}
 
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  color: var(--color-foreground);
+  font-family: var(--font-body), sans-serif;
+  background:
+    radial-gradient(circle at top left, rgb(134 166 97 / 0.18), transparent 28%),
+    radial-gradient(circle at 85% 15%, rgb(212 161 92 / 0.14), transparent 24%),
+    linear-gradient(180deg, #101410 0%, #0c0f0d 48%, #090a08 100%);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgb(255 255 255 / 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(255 255 255 / 0.03) 1px, transparent 1px);
+  background-size: 88px 88px;
+  mask-image: radial-gradient(circle at center, black 35%, transparent 85%);
+  opacity: 0.35;
+}
+
+main {
+  position: relative;
+  z-index: 1;
+}
+
+::selection {
+  color: #091008;
+  background: rgb(174 197 144 / 0.85);
+}
+
+a {
+  color: inherit;
+}
+
+.font-display {
+  font-family: var(--font-display), sans-serif;
+}
+
+.page-shell {
+  position: relative;
+  padding: 7rem 1rem 5rem;
+}
+
+.content-shell {
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 74rem;
+}
+
+.section-frame {
+  border: 1px solid var(--color-line);
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / 0.05), rgb(255 255 255 / 0.02)),
+    rgb(10 12 10 / 0.74);
+  box-shadow: var(--shadow-panel);
+  backdrop-filter: blur(18px);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--color-accent-300);
+}
+
+.eyebrow::before {
+  content: "";
+  width: 2.75rem;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgb(174 197 144 / 0.85));
+}
+
+.display-title {
+  font-family: var(--font-display), sans-serif;
+  letter-spacing: -0.06em;
+  line-height: 0.92;
+}
+
+.muted-copy {
+  color: var(--color-background-300);
+}
+
+.fine-rule {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-line-strong), transparent);
+}
+
+.pill-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border-radius: 999px;
+  border: 1px solid rgb(255 255 255 / 0.12);
+  padding: 0.5rem 0.9rem;
+  font-size: 0.84rem;
+  color: var(--color-foreground-soft);
+  background: rgb(255 255 255 / 0.03);
+}
+
+.code-block {
+  line-height: 1.3 !important;
+  border-radius: 1rem !important;
+  border: 1px solid rgb(255 255 255 / 0.08) !important;
+  padding: 1rem !important;
+  margin: 1.75rem 0 !important;
+  overflow-x: auto !important;
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.05);
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-text-fill-color: #fff;
+  -webkit-box-shadow: 0 0 0 1000px rgb(29 28 24 / 0.8) inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.code-block code {
+  background: transparent !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  color: inherit !important;
+  line-height: 1.3 !important;
+}
+
+.code-block .line {
+  line-height: 1.3 !important;
+  min-height: 0 !important;
+}
+
+.prose blockquote p::before,
+.prose blockquote p::after {
+  content: "" !important;
 }

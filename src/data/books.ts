@@ -2,10 +2,10 @@ export interface Book {
   id: string;
   title: string;
   author: string;
-  description: string;
+  category: string;
+  note: string;
   color: string;
-  height: number;
-  thickness: number;
+  featured?: boolean;
   currentlyReading?: boolean;
 }
 
@@ -14,131 +14,136 @@ export const books: Book[] = [
     id: "1",
     title: "Zero to One",
     author: "Peter Thiel",
-    description:
-      "The startup bible that teaches you how to build the future instead of just copy-pasting it.",
+    category: "Product",
+    note:
+      "I don't agree with all of it, but it's still useful for thinking about conviction, differentiation, and what makes a product actually matter.",
     color: "#1a365d",
-    height: 1.6,
-    thickness: 0.18,
   },
   {
     id: "2",
     title: "The Great Gatsby",
     author: "F. Scott Fitzgerald",
-    description:
-      "A glittering tragedy about chasing dreams that were never really yours to begin with.",
+    category: "Novel",
+    note:
+      "A novel about ambition, self-invention, and the distance between style and substance.",
     color: "#2d3748",
-    height: 1.5,
-    thickness: 0.14,
   },
   {
     id: "3",
     title: "The Hitchhiker's Guide to the Galaxy",
     author: "Douglas Adams",
-    description:
-      "The universe is absurd and mostly harmless—bring a towel. (H2G2 Book 1)",
+    category: "Fiction",
+    note: "Funny, strange, and much smarter than it first lets on.",
     color: "#285e61",
-    height: 1.55,
-    thickness: 0.16,
   },
   {
     id: "4",
     title: "The Restaurant at the End of the Universe",
     author: "Douglas Adams",
-    description:
-      "Dinner and a show, where the show is literally the end of everything. (H2G2 Book 2)",
+    category: "Fiction",
+    note: "More absurd than the first book, but still sharp about people and systems.",
     color: "#4a5568",
-    height: 1.5,
-    thickness: 0.16,
   },
   {
     id: "5",
     title: "Life, the Universe, and Everything",
     author: "Douglas Adams",
-    description:
-      "The answer is 42, but the question remains infuriatingly out of reach. (H2G2 Book 3)",
+    category: "Fiction",
+    note: "Chaos, bureaucracy, and cosmic silliness in equal measure.",
     color: "#5c3d2e",
-    height: 1.5,
-    thickness: 0.16,
   },
   {
     id: "6",
     title: "So Long, and Thanks for All the Fish",
     author: "Douglas Adams",
-    description:
-      "The dolphins knew it all along. (H2G2 Book 4)",
+    category: "Fiction",
+    note:
+      "The same dry, strange precision as the rest of the series, but a little more reflective.",
     color: "#0d5c63",
-    height: 1.5,
-    thickness: 0.16,
+  },
+  {
+    id: "6b",
+    title: "Mostly Harmless",
+    author: "Douglas Adams",
+    category: "Fiction",
+    note:
+      "Starting the last Hitchhiker's Guide book now. I'm mainly here for the tone and the way Adams makes absurdity feel oddly exact.",
+    color: "#264653",
+    currentlyReading: true,
+  },
+  {
+    id: "6c",
+    title: "Discourses and Selected Writings",
+    author: "Epictetus",
+    category: "Philosophy",
+    note:
+      "Also starting this in parallel. It feels like the opposite of noise: direct, disciplined, and hard to hide from.",
+    color: "#8a6a3d",
     currentlyReading: true,
   },
   {
     id: "7",
     title: "Sapiens",
     author: "Yuval Noah Harari",
-    description:
-      "How we went from naked apes to ordering takeout on our smartphones.",
+    category: "History",
+    note:
+      "Useful for thinking about shared narratives and the stories that make systems feel real.",
     color: "#744210",
-    height: 1.75,
-    thickness: 0.24,
+    featured: true,
   },
   {
     id: "8",
     title: "A Brief History of Time",
     author: "Stephen Hawking",
-    description:
-      "Black holes, relativity, and why your head hurts—in the best way possible.",
+    category: "Science",
+    note:
+      "A good reminder of how much sits outside intuition, and why that matters.",
     color: "#1e3a5f",
-    height: 1.6,
-    thickness: 0.18,
+    featured: true,
   },
   {
     id: "9",
     title: "The Epic of Gilgamesh",
     author: "Unknown (Ancient)",
-    description:
-      "The original bromance epic, written before writing was even cool.",
+    category: "Epic",
+    note: "Old enough to feel distant, familiar enough to still land.",
     color: "#78350f",
-    height: 1.4,
-    thickness: 0.12,
   },
   {
     id: "10",
     title: "Notes from Underground",
     author: "Fyodor Dostoevsky",
-    description:
-      "A miserable man yells at you from his basement and somehow makes you question everything.",
+    category: "Philosophy",
+    note:
+      "Uncomfortable, bitter, and useful for remembering how irrational people can be.",
     color: "#374151",
-    height: 1.45,
-    thickness: 0.11,
+    featured: true,
   },
   {
     id: "11",
     title: "Letters from a Stoic",
     author: "Seneca",
-    description:
-      "Ancient self-help that's somehow still better than modern self-help.",
+    category: "Philosophy",
+    note: "A steadying book on attention, discipline, and perspective.",
     color: "#702459",
-    height: 1.55,
-    thickness: 0.16,
+    featured: true,
   },
   {
     id: "12",
     title: "The Picture of Dorian Gray",
     author: "Oscar Wilde",
-    description:
-      "What if your bad decisions only showed up on your portrait?",
+    category: "Novel",
+    note: "Sharp, elegant, and much darker than its surface.",
     color: "#365314",
-    height: 1.5,
-    thickness: 0.14,
+    featured: true,
   },
   {
     id: "13",
     title: "The Stranger",
     author: "Albert Camus",
-    description:
-      "A man goes to the beach and accidentally becomes an existential icon.",
+    category: "Novel",
+    note: "Spare, detached, and hard to shake once you're done.",
     color: "#553c9a",
-    height: 1.4,
-    thickness: 0.12,
+    featured: true,
   },
 ];
