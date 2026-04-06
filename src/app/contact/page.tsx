@@ -18,6 +18,8 @@ export const metadata: Metadata = {
 };
 
 export default function ContactPage() {
+  const contactFormAccessKey = process.env.WEB3FORMS_ACCESS_KEY;
+
   return (
     <section className="page-shell">
       <div className="content-shell">
@@ -87,7 +89,7 @@ export default function ContactPage() {
             </p>
 
             <div className="fine-rule my-6" />
-            <ContactForm />
+            <ContactForm accessKey={contactFormAccessKey} />
           </AnimatedSection>
         </div>
       </div>

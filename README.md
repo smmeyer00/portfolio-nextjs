@@ -1,6 +1,6 @@
 # Steven Meyer Portfolio
 
-A Next.js portfolio built as a small product surface rather than a single landing page. The site combines case studies, long-form writing, a reading page with a progressive 3D enhancement, and a server-side contact workflow.
+A Next.js portfolio built as a small product surface rather than a single landing page. The site combines case studies, long-form writing, a reading page with a progressive 3D enhancement, and a contact workflow powered by Web3Forms.
 
 ## Stack
 
@@ -18,7 +18,7 @@ A Next.js portfolio built as a small product surface rather than a single landin
 - Structured project case studies with static generation
 - Local-first blog with reading time, table of contents, RSS, sitemap, and syntax highlighting
 - Reading page that keeps the content server-rendered while enhancing desktop with a 3D bookshelf
-- Server-side contact submission via Web3Forms
+- Client-side contact submission via Web3Forms
 
 ## Local Development
 
