@@ -23,7 +23,7 @@ export default function ContactPage() {
   return (
     <section className="page-shell">
       <div className="content-shell">
-        <AnimatedSection>
+        <AnimatedSection trigger="immediate">
           <SectionIntro
             eyebrow="Contact"
             title="Get in touch."
@@ -33,7 +33,10 @@ export default function ContactPage() {
 
         <div className="mt-12 grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
           <div className="grid gap-6">
-            <AnimatedSection className="section-frame rounded-[2rem] p-6 sm:p-8">
+            <AnimatedSection
+              trigger="immediate"
+              className="section-frame rounded-[2rem] p-6 sm:p-8"
+            >
               <p className="text-sm uppercase tracking-[0.24em] text-accent-300">
                 What to include
               </p>
@@ -79,7 +82,11 @@ export default function ContactPage() {
             </StaggerContainer>
           </div>
 
-          <AnimatedSection delay={0.08} className="section-frame rounded-[2rem] p-6 sm:p-8">
+          <AnimatedSection
+            trigger="immediate"
+            delay={0.08}
+            className="section-frame rounded-[2rem] p-6 sm:p-8"
+          >
             <p className="text-sm uppercase tracking-[0.24em] text-accent-300">
               Send a note
             </p>

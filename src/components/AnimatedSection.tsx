@@ -1,9 +1,10 @@
 "use client";
 
-import { motion, useAnimationControls, useInView } from "framer-motion";
-import { ReactNode, useEffect, useRef } from "react";
+import { motion } from "framer-motion";
+import { ReactNode } from "react";
 
 type Direction = "up" | "down" | "left" | "right";
+type Trigger = "in-view" | "immediate";
 
 interface AnimatedSectionProps {
   children: ReactNode;
@@ -11,6 +12,7 @@ interface AnimatedSectionProps {
   delay?: number;
   direction?: Direction;
   duration?: number;
+  trigger?: Trigger;
 }
 
 const viewportAmount = 0.2;
@@ -23,63 +25,27 @@ const directionOffsets: Record<Direction, { x: number; y: number }> = {
   right: { x: -30, y: 0 },
 };
 
-function isElementInView(element: HTMLElement, amount: number) {
-  const rect = element.getBoundingClientRect();
-  const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
-  const viewportWidth = window.innerWidth || document.documentElement.clientWidth;
-
-  if (rect.width === 0 || rect.height === 0) {
-    return false;
-  }
-
-  const visibleHeight = Math.min(rect.bottom, viewportHeight) - Math.max(rect.top, 0);
-  const visibleWidth = Math.min(rect.right, viewportWidth) - Math.max(rect.left, 0);
-
-  return visibleHeight >= rect.height * amount && visibleWidth >= rect.width * amount;
-}
-
-function useDeferredInViewAnimation() {
-  const ref = useRef<HTMLDivElement>(null);
-  const controls = useAnimationControls();
-  const isInView = useInView(ref, { once: true, amount: viewportAmount });
-
-  useEffect(() => {
-    const element = ref.current;
-
-    if (!element) {
-      return;
-    }
-
-    // Keep SSR output readable and only hide sections that start offscreen.
-    controls.set(isElementInView(element, viewportAmount) ? "visible" : "hidden");
-  }, [controls]);
-
-  useEffect(() => {
-    if (!isInView) {
-      return;
-    }
-
-    void controls.start("visible");
-  }, [controls, isInView]);
-
-  return { controls, ref };
-}
-
 export function AnimatedSection({
   children,
   className = "",
   delay = 0,
   direction = "up",
   duration = 0.5,
+  trigger = "in-view",
 }: AnimatedSectionProps) {
   const offset = directionOffsets[direction];
-  const { controls, ref } = useDeferredInViewAnimation();
+  const triggerProps =
+    trigger === "immediate"
+      ? { initial: false, animate: "visible" as const }
+      : {
+          initial: "hidden" as const,
+          whileInView: "visible" as const,
+          viewport: { once: true, amount: viewportAmount },
+        };
 
   return (
     <motion.div
-      ref={ref}
-      initial={false}
-      animate={controls}
+      {...triggerProps}
       variants={{
         hidden: { opacity: 0, ...offset },
         visible: {
@@ -104,20 +70,27 @@ interface StaggerContainerProps {
   children: ReactNode;
   className?: string;
   staggerDelay?: number;
+  trigger?: Trigger;
 }
 
 export function StaggerContainer({
   children,
   className = "",
   staggerDelay = 0.1,
+  trigger = "in-view",
 }: StaggerContainerProps) {
-  const { controls, ref } = useDeferredInViewAnimation();
+  const triggerProps =
+    trigger === "immediate"
+      ? { initial: false, animate: "visible" as const }
+      : {
+          initial: "hidden" as const,
+          whileInView: "visible" as const,
+          viewport: { once: true, amount: viewportAmount },
+        };
 
   return (
     <motion.div
-      ref={ref}
-      initial={false}
-      animate={controls}
+      {...triggerProps}
       variants={{
         hidden: {},
         visible: {

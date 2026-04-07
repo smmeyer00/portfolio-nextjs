@@ -21,7 +21,7 @@ export default function HomePage() {
     <section className="page-shell">
       <div className="content-shell">
         <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
-          <AnimatedSection className="max-w-3xl">
+          <AnimatedSection trigger="immediate" className="max-w-3xl">
             <span className="eyebrow">Product-minded software engineer</span>
             <h1 className="display-title mt-6 text-[3.6rem] text-foreground sm:text-[4.8rem] lg:text-[6.2rem]">
               I build software that stays understandable as it grows.
@@ -40,7 +40,7 @@ export default function HomePage() {
             </div>
           </AnimatedSection>
 
-          <AnimatedSection direction="left" delay={0.12}>
+          <AnimatedSection trigger="immediate" direction="left" delay={0.12}>
             <HeroImage />
           </AnimatedSection>
         </div>

@@ -23,7 +23,7 @@ export default function NotesPage() {
   return (
     <section className="page-shell">
       <div className="content-shell">
-        <AnimatedSection>
+        <AnimatedSection trigger="immediate">
           <SectionIntro
             eyebrow="Notes"
             title="Notes on building."
@@ -32,7 +32,10 @@ export default function NotesPage() {
         </AnimatedSection>
 
         {notes.length === 0 ? (
-          <AnimatedSection className="mt-12 section-frame rounded-[2rem] p-8 text-center">
+          <AnimatedSection
+            trigger="immediate"
+            className="mt-12 section-frame rounded-[2rem] p-8 text-center"
+          >
             <p className="text-lg text-background-300">No notes yet. Check back soon.</p>
           </AnimatedSection>
         ) : (

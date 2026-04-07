@@ -41,7 +41,7 @@ export default function ReadingListPage() {
   return (
     <section className="page-shell">
       <div className="content-shell">
-        <AnimatedSection>
+        <AnimatedSection trigger="immediate">
           <SectionIntro
             eyebrow="Reading"
             title="A small reading list."
@@ -50,7 +50,7 @@ export default function ReadingListPage() {
         </AnimatedSection>
 
         {currentReads.length > 0 ? (
-          <AnimatedSection className="mt-12">
+          <AnimatedSection trigger="immediate" className="mt-12">
             <div className="grid gap-8 lg:grid-cols-[0.7fr_1.3fr]">
               <SectionIntro
                 eyebrow="Currently reading"
@@ -98,7 +98,10 @@ export default function ReadingListPage() {
           </AnimatedSection>
         ) : null}
 
-        <AnimatedSection className="mt-20">
+        <AnimatedSection
+          trigger={currentReads.length === 0 ? "immediate" : "in-view"}
+          className="mt-20"
+        >
           <div className="grid gap-8 lg:grid-cols-[0.7fr_1.3fr]">
             <SectionIntro
               eyebrow="Standouts"

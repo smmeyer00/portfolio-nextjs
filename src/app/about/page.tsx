@@ -21,7 +21,7 @@ export default function AboutPage() {
   return (
     <section className="page-shell">
       <div className="content-shell">
-        <AnimatedSection>
+        <AnimatedSection trigger="immediate">
           <SectionIntro
             eyebrow="About"
             title="A product-minded software engineer working across frontend and backend."
@@ -30,7 +30,10 @@ export default function AboutPage() {
         </AnimatedSection>
 
         <div className="mt-12 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
-          <AnimatedSection className="section-frame rounded-[2rem] p-6 sm:p-8">
+          <AnimatedSection
+            trigger="immediate"
+            className="section-frame rounded-[2rem] p-6 sm:p-8"
+          >
             <p className="text-sm uppercase tracking-[0.24em] text-accent-300">
               Current context
             </p>
@@ -40,7 +43,11 @@ export default function AboutPage() {
             </p>
           </AnimatedSection>
 
-          <AnimatedSection delay={0.1} className="section-frame rounded-[2rem] p-6 sm:p-8">
+          <AnimatedSection
+            trigger="immediate"
+            delay={0.1}
+            className="section-frame rounded-[2rem] p-6 sm:p-8"
+          >
             <p className="text-sm uppercase tracking-[0.24em] text-accent-300">
               At a glance
             </p>

@@ -52,10 +52,13 @@
 
 html {
   scroll-behavior: smooth;
+  background-color: #090a08;
+  color-scheme: dark;
 }
 
 body {
   min-height: 100vh;
+  background-color: #090a08;
   color: var(--color-foreground);
   font-family: var(--font-body), sans-serif;
   background:
