@@ -14,15 +14,28 @@ export default function Error({
   }, [error]);
 
   return (
-    <section className="site-frame minimal-page">
-      <div className="minimal-page-inner">
-        <p className="section-index">Error / Unexpected</p>
-        <h1>Something broke.</h1>
-        <p className="minimal-page-copy">Try the request once more.</p>
-        <button type="button" onClick={reset} className="minimal-link">
-          Try again
-        </button>
-      </div>
-    </section>
+    <article className="man-page">
+      <header className="man-header">
+        <h1>STEVEN-MEYER(1)</h1>
+        <p>General Commands Manual</p>
+        <p>STEVEN-MEYER(1)</p>
+      </header>
+      <section>
+        <h2>NAME</h2>
+        <p><strong>error</strong> — something broke</p>
+      </section>
+      <section>
+        <h2>DESCRIPTION</h2>
+        <p>Try the request once more. If it persists, report to mail(1).</p>
+      </section>
+      <section>
+        <h2>SEE ALSO</h2>
+        <p className="see-also">
+          <button type="button" onClick={reset} className="minimal-link">
+            try-again(1)
+          </button>
+        </p>
+      </section>
+    </article>
   );
 }

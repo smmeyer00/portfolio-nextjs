@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { openGraphBase, siteConfig } from "@/data/site";
+import ManShell from "@/components/ManShell";
+import { openGraphBase, selectedWork, siteConfig } from "@/data/site";
 
 export const metadata: Metadata = {
   title: {
@@ -17,13 +18,7 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   return (
-    <article className="man-page">
-      <header className="man-header">
-        <h1>STEVEN-MEYER(1)</h1>
-        <p>General Commands Manual</p>
-        <p>STEVEN-MEYER(1)</p>
-      </header>
-
+    <ManShell name="STEVEN-MEYER(1)" footerName="STEVEN-MEYER(1)">
       <section>
         <h2>NAME</h2>
         <p><strong>steven-meyer</strong> — software engineer at Amazon Music</p>
@@ -31,14 +26,14 @@ export default function HomePage() {
 
       <section>
         <h2>SYNOPSIS</h2>
-        <p><strong>steven</strong> [--frontend] [--backend] [--product-systems]</p>
+        <p><strong>steven</strong> [--frontend] [--backend] [--product-systems] [--verbose]</p>
       </section>
 
       <section>
         <h2>DESCRIPTION</h2>
         <p>
-          Builds marketing technology across interface and infrastructure. Current
-          work includes server-driven product experiences and AI-assisted tooling.
+          Builds marketing tech at Amazon Music: server-driven experiences,
+          AI-assisted tooling.
         </p>
       </section>
 
@@ -47,16 +42,68 @@ export default function HomePage() {
         <dl className="options">
           <div><dt>--frontend</dt><dd>User-facing product interfaces.</dd></div>
           <div><dt>--backend</dt><dd>The systems behind them.</dd></div>
-          <div><dt>--product-systems</dt><dd>Structure, tradeoffs, and execution.</dd></div>
+          <div><dt>--product-systems</dt><dd>Structure and execution.</dd></div>
         </dl>
       </section>
 
       <section>
-        <h2>ENVIRONMENT</h2>
-        <dl className="environment">
-          <div><dt>LOCATION</dt><dd>{siteConfig.location}</dd></div>
-          <div><dt>EDUCATION</dt><dd>B.S. Computer Science</dd></div>
+        <h2>SYSTEMS</h2>
+        <dl className="options">
+          {selectedWork.map((w) => (
+            <div key={w.number}>
+              <dt>--{w.title.toLowerCase().replace(/[^a-z0-9]+/g, "-")}</dt>
+              <dd>{w.description}</dd>
+            </div>
+          ))}
         </dl>
+      </section>
+
+      <section>
+        <h2>EXAMPLES</h2>
+        <div className="examples">
+          <p><span className="ex-prompt">$</span> steven --verbose</p>
+          <p><span className="ex-prompt">$</span> curl smmeyer.dev/man.txt</p>
+        </div>
+      </section>
+
+      <div className="duo">
+        <section>
+          <h2>ENVIRONMENT</h2>
+          <dl className="environment narrow">
+            <div><dt>LOCATION</dt><dd>{siteConfig.location}</dd></div>
+            <div><dt>EDUCATION</dt><dd>B.S. Computer Science</dd></div>
+          </dl>
+        </section>
+
+        <section>
+          <h2>CONTACT</h2>
+          <p className="contact-line">
+            <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
+          </p>
+        </section>
+      </div>
+
+      <div className="duo">
+        <section>
+          <h2>EXIT STATUS</h2>
+          <dl className="deflist narrow">
+            <div><dt>0</dt><dd>Available for interesting work.</dd></div>
+            <div><dt>1</dt><dd>Heads-down — try mail(1).</dd></div>
+          </dl>
+        </section>
+
+        <section>
+          <h2>HISTORY</h2>
+          <dl className="deflist narrow">
+            <div><dt>2026</dt><dd>Amazon Music.</dd></div>
+            <div><dt>2023</dt><dd>B.S. Computer Science, SIUE.</dd></div>
+          </dl>
+        </section>
+      </div>
+
+      <section>
+        <h2>BUGS</h2>
+        <p>Known bug: over-engineers side projects.</p>
       </section>
 
       <section>
@@ -67,12 +114,6 @@ export default function HomePage() {
           <a href={`mailto:${siteConfig.email}`}>mail(1)</a>
         </p>
       </section>
-
-      <footer className="man-footer">
-        <p>smmeyer.dev</p>
-        <p className="prompt" aria-label="End of manual">:</p>
-        <p>STEVEN-MEYER(1)</p>
-      </footer>
-    </article>
+    </ManShell>
   );
 }

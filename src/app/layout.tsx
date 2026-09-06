@@ -56,8 +56,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
+        <script
+          key="man-theme"
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem("man-theme");if(t==="green"||t==="amber"||t==="paper")document.documentElement.setAttribute("data-theme",t)}catch(e){}})();`,
+          }}
+        />
         <script
           key="json-ld"
           type="application/ld+json"

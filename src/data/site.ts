@@ -39,7 +39,7 @@ export const selectedWork = [
     number: "01",
     title: "Marketing systems",
     description:
-      "Interfaces and backend systems behind messaging experiences and internal workflows.",
+      "Interfaces + backend for messaging workflows.",
     focus: "Product engineering · Frontend + backend",
     status: "Current",
   },
@@ -47,15 +47,15 @@ export const selectedWork = [
     number: "02",
     title: "Server-driven UI",
     description:
-      "Infrastructure for evolving product experiences without coupling every change to a client release.",
+      "Evolve product without client releases.",
     focus: "Systems design · UI architecture",
     status: "Amazon Music",
   },
   {
     number: "03",
-    title: "AI-assisted tooling",
+    title: "AI tooling",
     description:
-      "Tools that translate marketing intent into structured, executable campaigns.",
+      "Marketing intent into structured campaigns.",
     focus: "Product systems · Applied AI",
     status: "In practice",
   },

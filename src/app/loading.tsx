@@ -1,10 +1,14 @@
 export default function Loading() {
   return (
-    <section className="site-frame minimal-page" aria-live="polite">
-      <div className="minimal-page-inner">
-        <p className="section-index">Loading</p>
+    <article className="man-page" aria-live="polite">
+      <header className="man-header">
+        <h1>STEVEN-MEYER(1)</h1>
+        <p>General Commands Manual</p>
+        <p>STEVEN-MEYER(1)</p>
+      </header>
+      <section>
         <div className="loading-line" aria-hidden="true" />
-      </div>
-    </section>
+      </section>
+    </article>
   );
 }
