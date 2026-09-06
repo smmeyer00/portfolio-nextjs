@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
-import { bodyFont, monoFont } from "@/lib/fonts";
+import { bodyFont } from "@/lib/fonts";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Analytics } from "@vercel/analytics/next";
@@ -67,9 +67,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body
-        className={`${bodyFont.variable} ${monoFont.variable}`}
-      >
+      <body className={bodyFont.variable}>
         <Navbar />
         <main id="main-content">
           {children}
