@@ -1,8 +1,9 @@
-import { IBM_Plex_Mono, Instrument_Sans } from "next/font/google";
+import { Barlow_Condensed, IBM_Plex_Mono } from "next/font/google";
 
-export const bodyFont = Instrument_Sans({
-  variable: "--font-sans",
+export const displayFont = Barlow_Condensed({
+  variable: "--font-condensed",
   subsets: ["latin"],
+  weight: ["400", "500", "600"],
   display: "swap",
 });
 

@@ -18,8 +18,8 @@ export default function Navbar() {
       </a>
       <div className="site-frame header-inner">
         <Link href="/" className="identity-link" aria-label="Steven Meyer, home">
-          <span className="identity-name">{siteConfig.name}</span>
-          <span className="identity-role">Software engineer</span>
+          <span className="identity-name">smmeyer.dev</span>
+          <span className="identity-role">Index / 2026</span>
         </Link>
 
         <nav aria-label="External links" className="header-links">

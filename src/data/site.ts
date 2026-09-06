@@ -34,29 +34,21 @@ export const openGraphBase = {
   images: [defaultOpenGraphImage],
 };
 
-export const selectedWork = [
+export const profileIndex = [
   {
-    number: "01",
-    title: "Marketing systems",
-    description:
-      "Interfaces and backend systems behind messaging experiences and internal workflows.",
-    focus: "Product engineering · Frontend + backend",
-    status: "Current",
+    label: "Current",
+    value: "Software Engineer · Amazon Music",
   },
   {
-    number: "02",
-    title: "Server-driven UI",
-    description:
-      "Infrastructure for evolving product experiences without coupling every change to a client release.",
-    focus: "Systems design · UI architecture",
-    status: "Amazon Music",
+    label: "Practice",
+    value: "Marketing technology · Server-driven UI · AI-assisted tooling",
   },
   {
-    number: "03",
-    title: "AI-assisted tooling",
-    description:
-      "Tools that translate marketing intent into structured, executable campaigns.",
-    focus: "Product systems · Applied AI",
-    status: "In practice",
+    label: "Range",
+    value: "Frontend · Backend · Product systems",
+  },
+  {
+    label: "Based",
+    value: siteConfig.location,
   },
 ] as const;
