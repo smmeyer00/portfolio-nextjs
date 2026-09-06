@@ -1,20 +1,20 @@
 html {
-  background: white;
-  color-scheme: light;
+  background: #0b0c0b;
+  color-scheme: dark;
 }
 
 body {
   margin: 0;
-  background: white;
-  color: #111;
+  background: #0b0c0b;
+  color: #deddd6;
   font-family: Georgia, "Times New Roman", serif;
   font-size: 16px;
   line-height: 1.45;
 }
 
-a:link { color: #0000ee; }
-a:visited { color: #551a8b; }
-a:active { color: #ee0000; }
+a:link { color: #8ab4f8; }
+a:visited { color: #c69df7; }
+a:active { color: #ff8a80; }
 a:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
 
 .home-page {
@@ -34,12 +34,12 @@ a:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
 }
 
 .home-page header p,
-.home-page footer { color: #555; }
+.home-page footer { color: #979991; }
 
 .home-page p { max-width: 40rem; }
 .home-page h2 { margin: 1.1rem 0 0.2rem; font-size: 1.15rem; }
 .home-page h2 + p { margin-top: 0; }
-.home-page hr { width: 100%; margin: 1rem 0; border: 0; border-top: 1px solid #999; }
+.home-page hr { width: 100%; margin: 1rem 0; border: 0; border-top: 1px solid #4a4d48; }
 
 .home-page dl {
   display: grid;
@@ -67,11 +67,11 @@ a:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
 }
 
 .minimal-page-inner { width: 100%; }
-.section-index { margin: 0; color: #555; }
+.section-index { margin: 0; color: #979991; }
 .minimal-page h1 { margin: 1rem 0 0; font-size: 2rem; }
 .minimal-page-copy { margin: 1rem 0 0; }
 .minimal-link { display: inline-block; margin-top: 1rem; font: inherit; }
-button.minimal-link { padding: 0; border: 0; background: none; color: #0000ee; text-decoration: underline; cursor: pointer; }
+button.minimal-link { padding: 0; border: 0; background: none; color: #8ab4f8; text-decoration: underline; cursor: pointer; }
 .loading-line::after { content: "Loading…"; }
 
 @media (max-width: 520px) {
