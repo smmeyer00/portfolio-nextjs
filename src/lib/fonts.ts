@@ -1,11 +1,14 @@
-import { Manrope, Outfit } from "next/font/google";
+import { IBM_Plex_Mono, Instrument_Sans } from "next/font/google";
 
-export const bodyFont = Manrope({
-  variable: "--font-body",
+export const bodyFont = Instrument_Sans({
+  variable: "--font-sans",
   subsets: ["latin"],
+  display: "swap",
 });
 
-export const displayFont = Outfit({
-  variable: "--font-display",
+export const monoFont = IBM_Plex_Mono({
+  variable: "--font-mono",
   subsets: ["latin"],
+  weight: ["400", "500"],
+  display: "swap",
 });

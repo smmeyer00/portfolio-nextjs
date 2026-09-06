@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
-import { bodyFont, displayFont } from "@/lib/fonts";
+import { bodyFont, monoFont } from "@/lib/fonts";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Analytics } from "@vercel/analytics/next";
@@ -40,11 +40,6 @@ export const metadata: Metadata = {
     description: siteConfig.shortDescription,
     images: [defaultOpenGraphImage.url],
   },
-  alternates: {
-    types: {
-      "application/rss+xml": `${siteConfig.baseUrl}/feed.xml`,
-    },
-  },
   authors: [{ name: siteConfig.name }],
   creator: siteConfig.name,
   icons: {
@@ -55,7 +50,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#101410",
+  themeColor: "#0d0e0e",
 };
 
 export default function RootLayout({
@@ -73,10 +68,10 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${bodyFont.variable} ${displayFont.variable} flex min-h-screen flex-col antialiased`}
+        className={`${bodyFont.variable} ${monoFont.variable}`}
       >
-        <Navbar navItems={siteConfig.navItems.map((item) => ({ ...item }))} />
-        <main id="main-content" className="flex-1">
+        <Navbar />
+        <main id="main-content">
           {children}
         </main>
         <Analytics />

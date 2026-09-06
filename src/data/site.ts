@@ -2,21 +2,13 @@ export const siteConfig = {
   name: "Steven Meyer",
   firstName: "Steven",
   shortDescription:
-    "Software engineer at Amazon Music with a product-minded approach to frontend, backend, and user experience.",
+    "Software engineer at Amazon Music building product systems across frontend and backend.",
   longDescription:
-    "I work across frontend and backend, thinking in product terms: what matters, what's noise, and what's worth building well.",
+    "I build product systems across frontend and backend, currently focused on marketing technology and AI-assisted tooling.",
   baseUrl: "https://smmeyer.dev",
   location: "San Francisco Bay Area",
   employer: "Amazon Music",
   email: "smmeyer00@gmail.com",
-  availability: "Happy to talk about product, engineering, and interesting problems.",
-  navItems: [
-    { label: "Home", href: "/" },
-    { label: "About", href: "/about" },
-    { label: "Reading", href: "/reading" },
-    { label: "Notes", href: "/notes" },
-    { label: "Contact", href: "/contact" },
-  ],
   social: {
     github: "https://github.com/smmeyer00",
     linkedin: "https://linkedin.com/in/smmeyer00",
@@ -24,8 +16,8 @@ export const siteConfig = {
   keywords: [
     "Steven Meyer",
     "Steven Meyer software engineer",
-    "product-minded software engineer",
-    "frontend and backend engineer",
+    "product systems engineer",
+    "frontend and backend software engineer",
     "Amazon Music engineer",
     "San Francisco Bay Area software engineer",
   ],
@@ -42,32 +34,29 @@ export const openGraphBase = {
   images: [defaultOpenGraphImage],
 };
 
-export const aboutTimeline = [
+export const selectedWork = [
   {
-    period: "Now",
-    title: "Software Engineer at Amazon Music",
-    detail:
-      "Working on marketing technology across the interfaces and systems behind messaging experiences and internal tools.",
+    number: "01",
+    title: "Marketing systems",
+    description:
+      "Interfaces and backend systems behind messaging experiences and internal workflows.",
+    focus: "Product engineering · Frontend + backend",
+    status: "Current",
   },
   {
-    period: "2023",
-    title: "Graduated from Southern Illinois University Edwardsville",
-    detail:
-      "Earned a B.S. in Computer Science with a minor in Mathematics from Southern Illinois University Edwardsville, graduating cum laude.",
-  },
-];
-
-export const aboutFacts = [
-  {
-    label: "Role",
-    value: `Software Engineer at ${siteConfig.employer}`,
+    number: "02",
+    title: "Server-driven UI",
+    description:
+      "Infrastructure for evolving product experiences without coupling every change to a client release.",
+    focus: "Systems design · UI architecture",
+    status: "Amazon Music",
   },
   {
-    label: "Location",
-    value: siteConfig.location,
+    number: "03",
+    title: "AI-assisted tooling",
+    description:
+      "Tools that translate marketing intent into structured, executable campaigns.",
+    focus: "Product systems · Applied AI",
+    status: "In practice",
   },
-  {
-    label: "Education",
-    value: "B.S. in Computer Science, minor in Mathematics",
-  },
-];
+] as const;

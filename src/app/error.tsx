@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect } from "react";
-import Button from "@/components/Button";
 
 export default function Error({
   error,
@@ -15,23 +14,14 @@ export default function Error({
   }, [error]);
 
   return (
-    <section className="page-shell">
-      <div className="content-shell">
-        <div className="section-frame mx-auto max-w-2xl rounded-[2rem] px-6 py-14 text-center sm:px-8">
-          <p className="eyebrow justify-center">Something broke</p>
-          <h1 className="mt-6 font-display text-5xl font-semibold tracking-[-0.05em] text-foreground sm:text-6xl">
-            The page hit an unexpected edge case.
-          </h1>
-          <p className="mx-auto mt-5 max-w-xl text-base leading-7 text-background-300">
-            Try the request again. If the problem sticks around, the quickest
-            fallback is navigating back home and reloading from there.
-          </p>
-          <div className="mt-8 flex justify-center">
-            <Button onClick={reset} size="lg">
-              Try again
-            </Button>
-          </div>
-        </div>
+    <section className="site-frame minimal-page">
+      <div className="minimal-page-inner">
+        <p className="section-index">Error / Unexpected</p>
+        <h1>Something broke.</h1>
+        <p className="minimal-page-copy">Try the request once more.</p>
+        <button type="button" onClick={reset} className="minimal-link">
+          Try again
+        </button>
       </div>
     </section>
   );

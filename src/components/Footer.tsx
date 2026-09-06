@@ -1,59 +1,15 @@
-import Link from "next/link";
-import { socialLinks } from "@/data/social";
 import { siteConfig } from "@/data/site";
 
 export default function Footer() {
   return (
-    <footer className="px-4 pb-8 pt-16 sm:px-6 lg:px-8">
-      <div className="content-shell">
-        <div className="section-frame rounded-[2rem] px-6 py-8 sm:px-8 sm:py-10">
-          <div className="grid gap-10 sm:grid-cols-2">
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-background-400">
-                Explore
-              </p>
-              <div className="mt-4 grid gap-2">
-                {siteConfig.navItems.map((item) => (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    className="text-sm text-background-300 transition duration-300 hover:text-foreground"
-                  >
-                    {item.label}
-                  </Link>
-                ))}
-              </div>
-            </div>
-
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-background-400">
-                Connect
-              </p>
-              <div className="mt-4 flex flex-wrap gap-3">
-                {socialLinks.map((social) => (
-                  <a
-                    key={social.name}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-background-200 transition duration-300 hover:border-accent-300/30 hover:bg-accent-300/10 hover:text-foreground"
-                    aria-label={`Visit ${social.name}`}
-                  >
-                    <social.icon className="h-5 w-5" />
-                  </a>
-                ))}
-              </div>
-              <p className="mt-4 text-sm muted-copy">{siteConfig.availability}</p>
-            </div>
-          </div>
-
-          <div className="fine-rule my-8" />
-
-          <div className="flex flex-col gap-3 text-sm text-background-400 sm:flex-row sm:items-center sm:justify-between">
-            <p>© {new Date().getFullYear()} {siteConfig.name}.</p>
-            <p>{siteConfig.location}</p>
-          </div>
-        </div>
+    <footer className="site-footer">
+      <div className="site-frame footer-inner">
+        <p>© {new Date().getFullYear()} {siteConfig.name}</p>
+        <nav aria-label="Footer links" className="footer-links">
+          <a href={`mailto:${siteConfig.email}`}>Email</a>
+          <a href={siteConfig.social.github} target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href={siteConfig.social.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </nav>
       </div>
     </footer>
   );
