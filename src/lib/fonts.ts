@@ -1,4 +1,4 @@
-import { IBM_Plex_Mono, Instrument_Sans } from "next/font/google";
+import { Instrument_Sans, Newsreader } from "next/font/google";
 
 export const bodyFont = Instrument_Sans({
   variable: "--font-sans",
@@ -6,8 +6,8 @@ export const bodyFont = Instrument_Sans({
   display: "swap",
 });
 
-export const monoFont = IBM_Plex_Mono({
-  variable: "--font-mono",
+export const displayFont = Newsreader({
+  variable: "--font-serif",
   subsets: ["latin"],
   weight: ["400", "500"],
   display: "swap",

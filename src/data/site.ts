@@ -33,30 +33,3 @@ export const openGraphBase = {
   siteName: siteConfig.name,
   images: [defaultOpenGraphImage],
 };
-
-export const selectedWork = [
-  {
-    number: "01",
-    title: "Marketing systems",
-    description:
-      "Interfaces and backend systems behind messaging experiences and internal workflows.",
-    focus: "Product engineering · Frontend + backend",
-    status: "Current",
-  },
-  {
-    number: "02",
-    title: "Server-driven UI",
-    description:
-      "Infrastructure for evolving product experiences without coupling every change to a client release.",
-    focus: "Systems design · UI architecture",
-    status: "Amazon Music",
-  },
-  {
-    number: "03",
-    title: "AI-assisted tooling",
-    description:
-      "Tools that translate marketing intent into structured, executable campaigns.",
-    focus: "Product systems · Applied AI",
-    status: "In practice",
-  },
-] as const;
