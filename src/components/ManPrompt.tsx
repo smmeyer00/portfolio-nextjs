@@ -154,7 +154,7 @@ export default function ManPrompt() {
         say("no entry — this joke is load-bearing.");
         return;
       }
-      if (["curl smmeyer.dev/man.txt", "curl man.txt"].includes(cmd)) {
+      if (["curl man.smmeyer.dev", "curl man.smmeyer.dev/man.txt", "curl man.txt"].includes(cmd)) {
         say("already serving plain text to curl(1). try it.");
         return;
       }

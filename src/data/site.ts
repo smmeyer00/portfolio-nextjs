@@ -5,7 +5,7 @@ export const siteConfig = {
     "Software engineer at Amazon Music building product systems across frontend and backend.",
   longDescription:
     "I build product systems across frontend and backend, currently focused on marketing technology and AI-assisted tooling.",
-  baseUrl: "https://smmeyer.dev",
+  baseUrl: "https://man.smmeyer.dev",
   location: "San Francisco Bay Area",
   employer: "Amazon Music",
   email: "smmeyer00@gmail.com",

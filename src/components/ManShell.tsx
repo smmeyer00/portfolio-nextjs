@@ -18,7 +18,7 @@ export default function ManShell({ name, center = "General Commands Manual", foo
       </header>
       {children}
       <footer className="man-footer">
-        <p>smmeyer.dev</p>
+        <p>man.smmeyer.dev</p>
         <ManPrompt />
         <p>{footerName}</p>
       </footer>

@@ -22,7 +22,7 @@ ${selectedWork.map((w) => `       --${w.title.toLowerCase().replace(/[^a-z0-9]+/
 
 EXAMPLES
        $ steven --verbose
-       $ curl smmeyer.dev/man.txt
+       $ curl man.smmeyer.dev
 
 ENVIRONMENT
        LOCATION             ${siteConfig.location}
@@ -49,7 +49,7 @@ SEE ALSO
        linkedin: ${siteConfig.social.linkedin}
        mail: ${siteConfig.email}
 
-smmeyer.dev                                        STEVEN-MEYER(1)
+man.smmeyer.dev                                    STEVEN-MEYER(1)
 `;
 
 export async function GET() {
