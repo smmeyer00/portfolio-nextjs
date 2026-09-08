@@ -22,7 +22,7 @@ ${selectedWork.map((w) => `       --${w.title.toLowerCase().replace(/[^a-z0-9]+/
 
 EXAMPLES
        $ steven --verbose
-       $ curl man.smmeyer.dev
+       $ curl -L man.smmeyer.dev
 
 ENVIRONMENT
        LOCATION             ${siteConfig.location}

@@ -62,7 +62,7 @@ export default function HomePage() {
         <h2>EXAMPLES</h2>
         <div className="examples">
           <p><span className="ex-prompt">$</span> steven --verbose</p>
-          <p><span className="ex-prompt">$</span> curl man.smmeyer.dev</p>
+          <p><span className="ex-prompt">$</span> curl -L man.smmeyer.dev</p>
         </div>
       </section>
 
