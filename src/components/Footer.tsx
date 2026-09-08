@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ExternalLink } from "lucide-react";
 import { socialLinks } from "@/data/social";
 import { siteConfig } from "@/data/site";
 
@@ -26,9 +27,10 @@ export default function Footer() {
                   href="https://man.smmeyer.dev"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm text-background-300 transition duration-300 hover:text-foreground"
+                  className="inline-flex items-center gap-1.5 text-sm text-background-300 transition duration-300 hover:text-foreground"
                 >
-                  Terminal edition ↗
+                  Terminal edition
+                  <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
                 </a>
               </div>
             </div>
