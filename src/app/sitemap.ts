@@ -1,11 +1,11 @@
 import { MetadataRoute } from "next";
-import { getAllNoteSlugs } from "@/lib/notes";
+import { getAllNoteSlugs, getNoteLastModified } from "@/lib/notes";
 import { siteConfig } from "@/data/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const noteUrls = getAllNoteSlugs().map((slug) => ({
     url: `${siteConfig.baseUrl}/notes/${slug}`,
-    lastModified: new Date(),
+    lastModified: getNoteLastModified(slug),
     changeFrequency: "monthly" as const,
     priority: 0.7,
   }));

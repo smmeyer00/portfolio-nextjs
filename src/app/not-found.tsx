@@ -17,15 +17,15 @@ export default function NotFound() {
         <div className="section-frame mx-auto max-w-2xl rounded-[2rem] px-6 py-14 text-center sm:px-8">
           <p className="eyebrow justify-center">404</p>
           <h1 className="mt-6 font-display text-5xl font-semibold tracking-[-0.05em] text-foreground sm:text-6xl">
-            This route does not exist anymore.
+            That page isn’t here.
           </h1>
           <p className="mx-auto mt-5 max-w-xl text-base leading-7 text-background-300">
-            The page may have moved, been renamed, or never belonged here in the
-            first place.
+            The link might be old, or the page may have moved. Either way, you
+            can get back from here.
           </p>
           <div className="mt-8 flex justify-center">
             <Button href="/" size="lg">
-              Return home
+              Back home
             </Button>
           </div>
         </div>

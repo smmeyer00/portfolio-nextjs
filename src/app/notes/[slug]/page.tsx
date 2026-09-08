@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getAllNoteSlugs, getNoteBySlug, getNoteHtml } from "@/lib/notes";
+import { formatNoteDate, getAllNoteSlugs, getNoteBySlug, getNoteHtml } from "@/lib/notes";
 import { openGraphBase, siteConfig } from "@/data/site";
 
 interface PageProps {
@@ -59,13 +59,7 @@ export default async function NotePage({ params }: PageProps) {
           <article className="min-w-0">
             <header className="section-frame rounded-[2rem] px-6 py-8 sm:px-8 sm:py-10">
               <div className="flex flex-wrap items-center gap-3 text-sm text-background-400">
-                <time dateTime={note.date}>
-                  {new Date(note.date).toLocaleDateString("en-US", {
-                    year: "numeric",
-                    month: "long",
-                    day: "numeric",
-                  })}
-                </time>
+                <time dateTime={note.date}>{formatNoteDate(note.date)}</time>
                 <span>·</span>
                 <span>{note.readingTime} min read</span>
               </div>

@@ -32,7 +32,7 @@ export function HeroImage() {
           <div className="overflow-hidden rounded-[1.6rem]">
             <Image
               src="/kings_canyon_film.jpg"
-              alt="Steven Meyer - Software Engineer"
+              alt="Steven Meyer with a backpack looking out over granite peaks in Kings Canyon, shot on film"
               width={1565}
               height={1037}
               className="h-auto w-full object-cover transition duration-700 group-hover:scale-[1.03]"
@@ -40,6 +40,10 @@ export function HeroImage() {
             />
           </div>
         </div>
+
+        <p className="px-2 pt-3 text-xs leading-5 text-background-400">
+          Kings Canyon, shot on film.
+        </p>
 
         <div className="hero-badge-grid grid px-2 pb-1 pt-4 xl:hidden">
           <span className={`${locationBadgeClasses} ${blockBadgeClasses}`}>

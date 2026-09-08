@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import SectionIntro from "@/components/SectionIntro";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/AnimatedSection";
-import { getAllNotes } from "@/lib/notes";
+import { formatNoteDate, getAllNotes } from "@/lib/notes";
 import { openGraphBase, siteConfig } from "@/data/site";
 
 export const metadata: Metadata = {
@@ -44,13 +44,7 @@ export default function NotesPage() {
               <StaggerItem key={note.slug}>
                 <article className="section-frame rounded-[2rem] p-6 sm:p-8">
                   <div className="flex flex-wrap items-center gap-3 text-sm text-background-400">
-                    <time dateTime={note.date}>
-                      {new Date(note.date).toLocaleDateString("en-US", {
-                        year: "numeric",
-                        month: "long",
-                        day: "numeric",
-                      })}
-                    </time>
+                    <time dateTime={note.date}>{formatNoteDate(note.date)}</time>
                     <span>·</span>
                     <span>{note.readingTime} min read</span>
                   </div>

@@ -22,6 +22,14 @@ export default function Footer() {
                     {item.label}
                   </Link>
                 ))}
+                <a
+                  href="https://man.smmeyer.dev"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-background-300 transition duration-300 hover:text-foreground"
+                >
+                  Terminal edition ↗
+                </a>
               </div>
             </div>
 

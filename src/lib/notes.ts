@@ -238,3 +238,20 @@ export async function getNoteHtml(
 export function getAllNoteSlugs(): string[] {
   return getMarkdownFiles().map((file) => file.replace(/\.md$/, ""));
 }
+
+export function formatNoteDate(date: string) {
+  const normalized = /^\d{4}-\d{2}-\d{2}$/.test(date) ? `${date}T12:00:00` : date;
+  return new Date(normalized).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+}
+
+export function getNoteLastModified(slug: string): Date {
+  try {
+    return fs.statSync(path.join(notesDirectory, `${slug}.md`)).mtime;
+  } catch {
+    return new Date();
+  }
+}
