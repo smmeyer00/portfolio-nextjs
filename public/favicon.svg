@@ -1,14 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" fill="#0d0e0e"/>
-  <rect x="1" y="1" width="62" height="62" fill="none" stroke="#292b29" stroke-width="2"/>
-  <text
-    x="32"
-    y="39"
-    fill="#e7e4dc"
-    font-family="Arial, sans-serif"
-    font-size="20"
-    font-weight="500"
-    letter-spacing="-1"
-    text-anchor="middle"
-  >SM</text>
+  <rect width="64" height="64" rx="14" fill="#080a08"/>
+  <rect x="1.5" y="1.5" width="61" height="61" rx="12.5" fill="none" stroke="#8e958c" stroke-width="2" opacity="0.45"/>
+  <rect x="18" y="21" width="7" height="7" fill="#f0f2ed"/>
+  <rect x="18" y="35" width="7" height="7" fill="#f0f2ed"/>
+  <rect x="31" y="19" width="15" height="25" fill="#f0f2ed"/>
 </svg>
